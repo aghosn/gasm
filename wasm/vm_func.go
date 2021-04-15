@@ -99,7 +99,7 @@ func (vm *VirtualMachine) execNativeFunction() {
 		case OptCodeReturn:
 			return
 		default:
-			virtualMachineInstructions[op](vm)
+			VirtualMachineInstructions[op](vm)
 		}
 	}
 }

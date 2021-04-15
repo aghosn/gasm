@@ -161,7 +161,7 @@ func (vm *VirtualMachine) FetchFloat64() float64 {
 	return v
 }
 
-var virtualMachineInstructions = [256]func(vm *VirtualMachine){
+var VirtualMachineInstructions = [256]func(vm *VirtualMachine){
 	OptCodeUnreachable:       func(vm *VirtualMachine) { panic("unreachable") },
 	OptCodeNop:               func(vm *VirtualMachine) {},
 	OptCodeBlock:             block,
