@@ -6,9 +6,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/mathetake/gasm/hostfunc"
-	"github.com/mathetake/gasm/wasi"
-	"github.com/mathetake/gasm/wasm"
+	"github.com/aghosn/gasm/hostfunc"
+	"github.com/aghosn/gasm/wasi"
+	"github.com/aghosn/gasm/wasm"
 	"github.com/stretchr/testify/require"
 )
 

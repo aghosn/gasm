@@ -5,7 +5,7 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/mathetake/gasm/wasm/leb128"
+	"github.com/aghosn/gasm/wasm/leb128"
 )
 
 type ImportDesc struct {

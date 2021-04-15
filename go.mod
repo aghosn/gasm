@@ -1,7 +1,7 @@
-module github.com/mathetake/gasm
+module github.com/aghosn/gasm
 
 go 1.16
 
-require github.com/stretchr/testify v1.5.1
+require github.com/stretchr/testify v1.7.0
 
-replace github.com/mathetake/gasm => ./
+replace github.com/aghosn/gasm => ./

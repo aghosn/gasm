@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/mathetake/gasm/wasm/leb128"
+	"github.com/aghosn/gasm/wasm/leb128"
 )
 
 var (

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/mathetake/gasm/wasm"
+	"github.com/aghosn/gasm/wasm"
 )
 
 type ModuleBuilder struct {

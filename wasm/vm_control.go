@@ -3,7 +3,7 @@ package wasm
 import (
 	"bytes"
 
-	"github.com/mathetake/gasm/wasm/leb128"
+	"github.com/aghosn/gasm/wasm/leb128"
 )
 
 func block(vm *VirtualMachine) {
