@@ -12,6 +12,7 @@ type dummyFunc struct {
 
 func (d *dummyFunc) Call(_ *VirtualMachine)      { d.cnt++ }
 func (d *dummyFunc) FunctionType() *FunctionType { return &FunctionType{} }
+func (d *dummyFunc) PrepCall(_ *VirtualMachine)  { panic("Not tested") }
 
 func Test_call(t *testing.T) {
 	df := &dummyFunc{}

@@ -9,6 +9,7 @@ type (
 	VirtualMachineFunction interface {
 		Call(vm *VirtualMachine)
 		FunctionType() *FunctionType
+		PrepCall(vm *VirtualMachine)
 	}
 	HostFunction struct {
 		ClosureGenerator func(vm *VirtualMachine) reflect.Value
@@ -76,6 +77,10 @@ func (h *HostFunction) Call(vm *VirtualMachine) {
 	}
 }
 
+func (h *HostFunction) PrepCall(vm *VirtualMachine) {
+	panic("TODO: implement prep call in host function")
+}
+
 func (n *NativeFunction) Call(vm *VirtualMachine) {
 	al := len(n.Signature.InputTypes)
 	locals := make([]uint64, n.NumLocal+uint32(al))
@@ -91,6 +96,19 @@ func (n *NativeFunction) Call(vm *VirtualMachine) {
 	}
 	vm.execNativeFunction()
 	vm.ActiveContext = prev
+}
+
+func (n *NativeFunction) PrepCall(vm *VirtualMachine) {
+	al := len(n.Signature.InputTypes)
+	locals := make([]uint64, n.NumLocal+uint32(al))
+	for i := 0; i < al; i++ {
+		locals[al-1-i] = vm.OperandStack.Pop()
+	}
+	vm.ActiveContext = &NativeFunctionContext{
+		Function:   n,
+		Locals:     locals,
+		LabelStack: NewVirtualMachineLabelStack(),
+	}
 }
 
 func (vm *VirtualMachine) execNativeFunction() {
